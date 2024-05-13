@@ -13,8 +13,8 @@ library(CAST)
 library(iml)
 
 # Set working directory and temporary directory for raster processing
-setwd("/Volumes/Elements/Masterarbeit/Git/Data")
-rasterOptions(tmpdir="/Volumes/Elements/Masterarbeit/Git/Data/tmp")
+setwd("//Git/Data")
+rasterOptions(tmpdir="/Git/Data/tmp")
 
 # Load training data and final model
 trainData <- readRDS("TrainData.RDS")
