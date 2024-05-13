@@ -31,14 +31,14 @@ for (i in files){
 #   Calculate NDVI and Diversity for sub-stacks
 #------------------------------------------------------------------------------------------------------------------------------------
 
-mypath <- "/Volumes/Elements/Masterarbeit/Git/Data/Predictors/sentinel/2018/processing"
-rasterOptions(tmpdir="/Volumes/Elements/Masterarbeit/Git/Data/Predictors/sentinel/2017/tmp")
+mypath <- "/Git/Data/Predictors/sentinel/2018/processing"
+rasterOptions(tmpdir="/Git/Data/Predictors/sentinel/2017/tmp")
 
 myfolders <- list.dirs(mypath)[-1]
 print(myfolders)
 basename(myfolders)
 
-sentinelnames = stack("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/sentinel/2017/test/sen/sentinel.tif")
+sentinelnames = stack("/Git/Data/Predictors/sentinel/2017/test/sen/sentinel.tif")
 
 ndvi <- function(x) {
   names(x) = names(sentinelnames)
@@ -79,7 +79,7 @@ for(script in myfolders) {
 # b) Merge
 #------------------------------------------------------------------------------------------------------------------------------------
 
-srtm=raster("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/srtm10.tif")
+srtm=raster("/Git/Data/Predictors/srtm10.tif")
 
 for(script in myfolders) {
   setwd(script)
