@@ -1,9 +1,9 @@
-// Loead landcover
+// Load landcover
 var land1 = ee.Image("projects/alinakraemer-sdm-l-agilis/assets/Clip_wcres100");
 var land2 = ee.Image("projects/alinakraemer-sdm-l-agilis/assets/Clip_wcres101");
 var land = ee.ImageCollection([land1, land2]).mosaic();
 
-// Loead soiltypes
+// Load soiltypes
 var soil1 = ee.Image("projects/alinakraemer-sdm-l-agilis/assets/Clip_soil_neu_100");
 var soil2 = ee.Image("projects/alinakraemer-sdm-l-agilis/assets/Clip_soil_neu_101");
 var soil = ee.ImageCollection([soil1, soil2]).mosaic();
