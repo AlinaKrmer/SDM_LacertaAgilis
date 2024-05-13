@@ -22,8 +22,8 @@ library(tidyverse)
 
 
 # Set working directory and raster processing options
-setwd("/Volumes/Elements/Masterarbeit/Git/Data")
-rasterOptions(tmpdir="/Volumes/Elements/Masterarbeit/Git/Data/tmp")
+setwd("/Git/Data")
+rasterOptions(tmpdir="/Git/Data/tmp")
 
 # Load training data and set random seed
 trainData <- readRDS("trainData.RDS")
