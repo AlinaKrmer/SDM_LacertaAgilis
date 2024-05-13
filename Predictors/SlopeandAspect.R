@@ -13,8 +13,8 @@ library(sp)
 library(rgeos)
 
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors")
-rasterOptions(tmpdir="/Volumes/Elements/Masterarbeit/Daten/Predictors/Rest")
+setwd("/Git/Data/Predictors")
+rasterOptions(tmpdir="/Daten/Predictors/Rest")
               
 srtm10 =raster("srtm10.tif")
 
