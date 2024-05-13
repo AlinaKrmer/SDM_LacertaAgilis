@@ -24,8 +24,8 @@ library(sf)
 library(nestedcv)
 
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data")
-rasterOptions(tmpdir="/Volumes/Elements/Masterarbeit/Git/Data/tmp")
+setwd("/Git/Data")
+rasterOptions(tmpdir="/Git/Data/tmp")
 trainData <- readRDS("Training/TrainData/trainData.RDS")
 set.seed(999)
 
