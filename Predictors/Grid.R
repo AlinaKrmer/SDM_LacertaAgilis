@@ -8,7 +8,7 @@ library(sf)
 library(stars)
 
 
-setwd("/Volumes/Elements/Masterarbeit/Daten/Predictors/Maske")
+setwd("/Daten/Predictors/Maske")
 
 # Polygon
 regions <- st_read("Extent_Merge.shp") %>%
@@ -26,7 +26,7 @@ plot(st_geometry(regions), border = "red", add = TRUE)
 
 write_sf(grid,"mergedgrid.shp")
 
-grid = read_sf("/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/mask/gridwgs84.shp")
+grid = read_sf("/Git/Data/processingpredictors/mask/gridwgs84.shp")
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Crop Predstack in Gridcells
@@ -37,10 +37,10 @@ library(sp)
 library(raster)
 library(caret)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors")
-rasterOptions(tmpdir="/Volumes/Elements/Masterarbeit/Git/Data/tmp")
+setwd("/Git/Data/Predictors")
+rasterOptions(tmpdir="/Git/Data/tmp")
 grid = read_sf("Grid/gridwgs84.shp")
-model <- readRDS("/Volumes/Elements/Masterarbeit/Git/Data/Training/ffsModel20221005.RDS")
+model <- readRDS("/Git/Data/Training/ffsModel20221005.RDS")
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Crop Predstack in Gridcells
