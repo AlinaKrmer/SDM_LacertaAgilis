@@ -22,7 +22,7 @@ p <- processes() #Objekt wo Operationen drin sind
 # Set Extent
 
 # sf-object, unprojiziert (lat, lon WGS84, kein utm)
-extent <- read_sf("/Volumes/Elements/Masterarbeit/Daten/Prädiktoren/Maske/gadm_St.shp")
+extent <- read_sf("/Daten/Prädiktoren/Maske/gadm_St.shp")
 
 extent<-st_geometry(extent)
 extent$geometry
@@ -106,7 +106,7 @@ sink(NULL) # stops the sink
 
 # start_job(job = job)
 
-OpenEO<-raster("/Volumes/Elements/Masterarbeit/Daten/Prädiktoren/openEO.tif")
+OpenEO<-raster("/Daten/Prädiktoren/openEO.tif")
 plot(OpenEO)
 
 library(mapview)
