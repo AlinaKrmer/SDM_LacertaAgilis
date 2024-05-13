@@ -28,7 +28,7 @@ library(sf)
 library(RSAGA)
 
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/srtm/background")
+setwd("/Git/Data/Predictors/srtm/background")
 
 # Download tiles
 srtm1 <- getData('SRTM', lon=0, lat=55)
@@ -47,7 +47,7 @@ gadm <- bind(gadm_G,gadm_N)
 plot(srtm, main="Elevation (SRTM)")
 plot(gadm, add=TRUE)
 
-writeRaster(srtm, "/Volumes/Elements/Masterarbeit/Git/Data/Predictors/srtm.tif")
+writeRaster(srtm, "/Git/Data/Predictors/srtm.tif")
 
 
 #------------------------------------------------------------------------------------------------------------------------------------
@@ -60,8 +60,8 @@ setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/srtm")
 srtm <- raster("srtm.tif")
 crs(srtm)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/srtm/background")
-Merge <-read_sf("/Volumes/Elements/Masterarbeit/Daten/Predictors/Maske/gadm_Merge.shp")
+setwd("/Git/Data/Predictors/srtm/background")
+Merge <-read_sf("/Daten/Predictors/Maske/gadm_Merge.shp")
 
 # GADM with getData, references https://gadm.org
 gadm_G <- getData('GADM', country='Germany', level=1)
@@ -80,13 +80,13 @@ e <- extent(3.360782, 11.59808, 50.32301, 53.89208)
 srtm_crop <- crop(srtm,e)
 mapview(srtm_crop)
 
-writeRaster(srtm_crop,"/Volumes/Elements/Masterarbeit/Git/Data/Predictors/srtm.tif")
+writeRaster(srtm_crop,"/Git/Data/Predictors/srtm.tif")
 
 #------------------------------------------------------------------------------------------------------------------------------------
 # 1. c) resample
 #------------------------------------------------------------------------------------------------------------------------------------
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/srtm")
+setwd("/Git/Data/Predictors/srtm")
 
 srtm <- raster("srtm.tif")
 mapview(srtm)
