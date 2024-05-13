@@ -13,8 +13,8 @@ library(mapview)
 library(sp)
 library(rgeos)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/dni")
-rasterOptions(tmpdir="/Volumes/Elements/Masterarbeit/Git/Data/tmp")
+setwd("/Git/Data/processingpredictors/dni")
+rasterOptions(tmpdir="/Git/Data/tmp")
 
 dnig = raster("dnig.tif")
 dninl =raster("dninl.tif")
@@ -28,7 +28,7 @@ dni = raster::merge(dnig, dninl, tolerance=0.5)
 # b) crop and resample
 #------------------------------------------------------------------------------------------------------------------------------------
 
-srtm = raster("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/srtm10.tif")
+srtm = raster("/Git/Data/Predictors/srtm10.tif")
 
 dni_crop <- crop(dni,srtm)
 
