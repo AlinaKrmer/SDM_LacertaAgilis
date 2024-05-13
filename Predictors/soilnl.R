@@ -20,7 +20,7 @@ options(stringsAsFactors = FALSE)
 
 options(pillar.sigfig=3)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil")
+setwd("/Git/Data/Predictors/soil")
 getwd()
 
 library(curl)
@@ -194,11 +194,11 @@ library(raster)
 library(mapview)
 library(sp)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil/raster")
+setwd("/Git/Data/Predictors/soil/raster")
 
 #read in files
 # sand
-files = list.files(path = "/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil/raster", pattern='sand', 
+files = list.files(path = "/Git/Data/Predictors/soil/raster", pattern='sand', 
                     all.files=TRUE, full.names=FALSE)
 files
 sand = lapply(files, raster)
@@ -211,7 +211,7 @@ sand = raster::merge(ss1,ss2, tolerance = 0.5)
 mapview(sand)
 
 # silt
-files = list.files(path = "/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil/raster", pattern='silt', 
+files = list.files(path = "/Git/Data/Predictors/soil/raster", pattern='silt', 
                     all.files=TRUE, full.names=FALSE)
 files
 silt = lapply(files, raster)
@@ -223,7 +223,7 @@ silt = raster::merge(s1,s2, tolerance = 0.5)
 mapview(silt)
 
 # clay
-files = list.files(path = "/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil/raster", pattern='clay', 
+files = list.files(path = "/Git/Data/Predictors/soil/raster", pattern='clay', 
                     all.files=TRUE, full.names=FALSE)
 files
 clay = lapply(files, raster)
@@ -235,7 +235,7 @@ clay = raster::merge(c1,c2, tolerance = 0.5)
 mapview(clay)
 
 # Crop Netherland
-setwd("/Volumes/Elements/Masterarbeit/Daten/Predictors/Maske")
+setwd("/Daten/Predictors/Maske")
 extent = getData('GADM', country='Netherlands', level=1)
 
 extent = spTransform(extent, crs(silt))
@@ -245,7 +245,7 @@ sand_nl = crop(sand,extent)
 silt_nl = crop(silt,extent)
 clay_nl = crop(clay,extent)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil")
+setwd("/Git/Data/Predictors/soil")
 writeRaster(sand_nl,"SoilGridsNL/sand_nl.tif")
 writeRaster(silt_nl,"SoilGridsNL/silt_nl.tif")
 writeRaster(clay_nl,"SoilGridsNL/clay_nl.tif")
@@ -258,7 +258,7 @@ writeRaster(clay_nl,"SoilGridsNL/clay_nl.tif")
 library(raster)
 library(mapview)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil")
+setwd("/Git/Data/Predictors/soil")
 sand = raster("SoilGridsNL/sand_nl.tif")
 clay = raster("SoilGridsNL/clay_nl.tif")
 silt = raster("SoilGridsNL/silt_nl.tif")
@@ -314,7 +314,7 @@ plot(c)
 s <- ceiling(soilnl)
 unique(soilnl)
 
-writeRaster(s,"/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/soil/soiltype_nl.tif")
+writeRaster(s,"/Git/Data/processingpredictors/soil/soiltype_nl.tif")
 
 # interpolate to minimize NA
 fill.na <- function(x, i=13) {
@@ -332,14 +332,14 @@ x <- focal(soilnl, w = matrix(1,5,5), fun = fill.na,
 
 mapview(s)
 mapview(x)
-writeRaster(x,"/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/soil/interpolatedsoiltype_nl.tif")
+writeRaster(x,"/Git/Data/processingpredictors/soil/interpolatedsoiltype_nl.tif")
 
 #------------------------------------------------------------------------------------------------------------------------------------
 # d) Downscaling to 10x10, Grid is in 250x250
 # GADM, references https://gadm.org
 #------------------------------------------------------------------------------------------------------------------------------------
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/soil")
+setwd("/Git/Data/processingpredictors/soil")
 
 soilnl = disaggregate(x, fact=c(25, 25))
 mapview(soilnl)
