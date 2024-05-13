@@ -15,8 +15,8 @@ library(rgdal)
 library(sp)
 library(sf)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/Grid")
-rasterOptions(tmpdir="/Volumes/Elements/Masterarbeit/Git/Data/tmp")
+setwd("Git/Data/Predictors/Grid")
+rasterOptions(tmpdir="Git/Data/tmp")
 #------------------------------------------------------------------------------------------------------------------------------------
 
 gadm_G <- getData('GADM', country='Germany', level=1)
