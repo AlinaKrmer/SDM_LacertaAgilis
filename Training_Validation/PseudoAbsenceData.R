@@ -6,8 +6,8 @@ library(sp)
 library(dplyr)
 
 # Read Data
-ac <- read.csv("/Volumes/Elements/Masterarbeit/Git/Data/Referencedata/Input/abundances.csv", header=TRUE, sep=",", dec=",")
-mask <- raster("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/srtm10.tif")
+ac <- read.csv("/Git/Data/Referencedata/Input/abundances.csv", header=TRUE, sep=",", dec=",")
+mask <- raster("/Git/Data/Predictors/srtm10.tif")
 
 # Set a random seed for reproducibility
 set.seed(1963)
@@ -46,7 +46,7 @@ pa <- data.frame(filtered_points)
 pa$pa <- "Absence"
 
 # Read abundance data again
-ac <- read.csv("/Volumes/Elements/Masterarbeit/Git/Data/Referencedata/Input/abundances.csv", header=TRUE, sep=",", dec=",")
+ac <- read.csv("/Git/Data/Referencedata/Input/abundances.csv", header=TRUE, sep=",", dec=",")
 
 # Select specific columns from abundance data
 df <- data.frame(ac[,c(3,4,5)])
@@ -55,7 +55,7 @@ df <- data.frame(ac[,c(3,4,5)])
 names(pa) <- c("Lon", "Lat", "abundance")
 traindat <- rbind(df, pa)
 
-write.csv(traindat,"/Volumes/Elements/Masterarbeit/Git/Data/Referencedata/Input/traindat.csv")
+write.csv(traindat,"/Git/Data/Referencedata/Input/traindat.csv")
 
 
 
