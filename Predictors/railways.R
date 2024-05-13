@@ -17,8 +17,8 @@ library(dplyr)
 library(caret) 
 library(rgdal)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/railways")
-rasterOptions(tmpdir="/Volumes/Elements/Masterarbeit/Git/Data/tmp")
+setwd("Git/Data/processingpredictors/railways")
+rasterOptions(tmpdir="/Git/Data/tmp")
 
 #------------------------------------------------------------------------------------------------------------------------------------
 # a) Subset 
