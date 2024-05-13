@@ -15,7 +15,7 @@ library(sf)
 library(sp)
 library(rgdal)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/waterways")
+setwd("/Git/Data/processingpredictors/waterways")
 
 #------------------------------------------------------------------------------------------------------------------------------------
 # a) Subset
