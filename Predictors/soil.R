@@ -21,8 +21,8 @@ library(dplyr)
 library(rgeos)
 library(rgdal)
 
-setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil/Deutschland_Bodenart_Shape")
-rasterOptions(tmpdir="/Volumes/Elements/Masterarbeit/Git/Data/tmp")
+setwd("Git/Data/Predictors/soil/Deutschland_Bodenart_Shape")
+rasterOptions(tmpdir="Git/Data/tmp")
 
 
 #------------------------------------------------------------------------------------------------------------------------------------
@@ -72,7 +72,7 @@ soil_crop = soil_crop %>% dplyr::mutate(class = ifelse(soil_crop$BODART_GR == "L
 
 library(rgdal)
 write_sf(soil_crop,"soil_crop.shp")
-soil_crop <- readOGR("/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/soil/Deutschland_Bodenart_Shape/soil_crop.shp")
+soil_crop <- readOGR("/Git/Data/processingpredictors/soil/Deutschland_Bodenart_Shape/soil_crop.shp")
 
 
 #------------------------------------------------------------------------------------------------------------------------------------
@@ -108,16 +108,16 @@ soil = projectRaster(soil, crs="+proj=longlat +datum=WGS84 +no_defs")
 
 setwd("/Volumes/Elements/Masterarbeit/Git/Data/Predictors")
 writeRaster(soil,"soil/soilg10.tif")
-r <- raster("/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/soil/soilg10.tif")
+r <- raster("/Git/Data/processingpredictors/soil/soilg10.tif")
 
 
 #------------------------------------------------------------------------------------------------------------------------------------
 # c) Resample
 #------------------------------------------------------------------------------------------------------------------------------------
 
-srtm=raster("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/srtm10.tif")
-soilnl = raster("/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/soil/soilnl10.tif")
-soilg = raster("/Volumes/Elements/Masterarbeit/Git/Data/processingpredictors/soil/soilg10.tif")
+srtm=raster("/Git/Data/Predictors/srtm10.tif")
+soilnl = raster("/Git/Data/processingpredictors/soil/soilnl10.tif")
+soilg = raster("/Git/Data/processingpredictors/soil/soilg10.tif")
 mapview(soilg)
 
 soilnl <- projectRaster(soilnl, srtm)
@@ -133,13 +133,13 @@ soilg_resample = resample(soilg,srtm,"ngb", "soilg_resample.tif")
 # d) Merge
 #------------------------------------------------------------------------------------------------------------------------------------
 
-soilnl = raster("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil/soilnl_resample.tif")
-soilg = raster("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil/soilg_resample.tif")
+soilnl = raster("/Git/Data/Predictors/soil/soilnl_resample.tif")
+soilg = raster("/Git/Data/Predictors/soil/soilg_resample.tif")
 
 soil10 = raster::merge(soilg, soilnl)
-writeRaster(soil10,"/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil10.tif")
+writeRaster(soil10,"/Git/Data/Predictors/soil10.tif")
 
-soil = raster("/Volumes/Elements/Masterarbeit/Git/Data/Predictors/soil_neu_10.tif")
+soil = raster("/Git/Data/Predictors/soil_neu_10.tif")
 
 
 
